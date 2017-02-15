@@ -5,11 +5,11 @@
  * Date: 2/14/2017
  * Time: 9:33 PM
  */
-// Passing the array of ParsedLogDataObjects to a foreach loop to be written to the database
-function writeLogToDb($parsedLogDataArray) {
 
-    // needed to change localhost to 127.0.0.1 to get the PDO to work
-    $con = new PDO('mysql:host=127.0.0.1;dbname=apache_log_parse', 'root', '');
+// Passing the array of ParsedLogDataObjects to a foreach loop to be written to the database
+function writeLogToDb(PDO $pdo, array $parsedLogDataArray) {
+
+    $con = $pdo;
     // set the PDO error mode to exception
     $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
